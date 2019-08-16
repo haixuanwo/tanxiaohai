@@ -2,6 +2,7 @@
 
 int main()
 {
+	printf("tanxiaohai");
 	return 0;
 }
 
