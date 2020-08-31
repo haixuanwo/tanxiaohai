@@ -1,12 +1,14 @@
 
 CXX=g++
 RM=rm
-SRC=main.cpp src/log.cpp
-CFLAGS=-llog4cpp -lpthread -std=c++11
-BIN=main
+SRC=main.cpp src/log.cpp src/mqtt.cpp
+CFLAGS=-llog4cpp -lmosquitto -lpthread -std=c++11 -g
+BIN=mqtt_main
+INC=include
+LIB=lib
 
 all:
-	$(CXX) -Iinclude -Llib $(SRC) $(CFLAGS) -o $(BIN)
+	$(CXX) -I$(INC) -L$(LIB) $(SRC) $(CFLAGS) -o $(BIN)
 
 clean:
 	$(RM) -rf $(BIN) *.o
