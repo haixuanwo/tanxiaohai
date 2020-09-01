@@ -8,7 +8,7 @@
 #include "log.h"
 
 // 初始化日志对象
-CLog log(LOG_TARGET_ALL, DEBUG, "%d{%d %b %Y %H:%M:%S} [%p] %c %m%n");
+CLog Log(LOG_TARGET_ALL, DEBUG, "%d{%d %b %Y %H:%M:%S} [%p] %c %m%n");
 
 CLog::CLog(LogOutTarget_E logOutTarget, Level_E level, const char *logFormat)
 {

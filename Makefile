@@ -1,7 +1,7 @@
 
 CXX=g++
 RM=rm
-SRC=main.cpp src/log.cpp src/mqtt.cpp
+SRC=main.cpp src/log.cpp src/mqtt.cpp src/tinyxml2.cpp
 CFLAGS=-llog4cpp -lmosquitto -lpthread -std=c++11 -g
 BIN=mqtt_main
 INC=include

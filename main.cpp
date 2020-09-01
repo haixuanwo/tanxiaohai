@@ -6,6 +6,8 @@
 #include "common_include.h"
 #include "log.h"
 #include "mqtt.h"
+#include "tinyxml2.h"
+#include "json.hpp"
 #include <string.h>
 
 int log_test()
