@@ -8,6 +8,7 @@
 #include "mqtt.h"
 #include "tinyxml2.h"
 #include "json.hpp"
+#include "sqlite.h"
 #include <string.h>
 
 int log_test()
