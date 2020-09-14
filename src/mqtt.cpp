@@ -22,14 +22,14 @@ int CMqtt::init_mqtt()
     int ret = mosquitto_lib_init();
     if (MOSQ_ERR_SUCCESS != ret)
     {
-        TRACE_DEBUG("mosquitto_connect error");
+        CLOG_DEBUG("mosquitto_connect error");
         return -1;
     }
 
     mosq = mosquitto_new(nullptr, true, nullptr);
 	if(!mosq)
     {
-        TRACE_DEBUG("mosquitto_new error");
+        CLOG_DEBUG("mosquitto_new error");
         return -1;
     }
 
@@ -44,16 +44,16 @@ int CMqtt::init_mqtt()
     ret = mosquitto_connect(mosq, mqttAttr->IP, mqttAttr->port, mqttAttr->keepalive);
     if (MOSQ_ERR_SUCCESS != ret)
     {
-        TRACE_DEBUG("mosquitto_connect error");
+        CLOG_DEBUG("mosquitto_connect error");
         return -1;
     }
 
-    TRACE_DEBUG("init_mqtt success");
+    CLOG_DEBUG("init_mqtt success");
 }
 
 void CMqtt::message_callback(struct mosquitto *mosq, void *obj, const struct mosquitto_message *msg)
 {
-    TRACE_DEBUG("%s:%s", (char *)msg->topic, (char *)msg->payload);
+    CLOG_DEBUG("%s:%s", (char *)msg->topic, (char *)msg->payload);
 }
 
 void CMqtt::connect_callback(struct mosquitto *mosq, void *obj, int rc)
@@ -61,16 +61,16 @@ void CMqtt::connect_callback(struct mosquitto *mosq, void *obj, int rc)
     if (rc)
     {
         // 连接错误，退出程序
-        TRACE_DEBUG("on_connect error!\n");
+        CLOG_DEBUG("on_connect error!\n");
     }
     else
     {
         // 订阅主题
         // 参数：句柄、id、订阅的主题、qos
         if (MOSQ_ERR_SUCCESS != mosquitto_subscribe(mosq, NULL, mqttAttr->sub_topic, mqttAttr->qos))
-            TRACE_DEBUG("Set the topic error!\n");
+            CLOG_DEBUG("Set the topic error!\n");
         else
-            TRACE_DEBUG("subscribe topic %s success\n", mqttAttr->sub_topic);
+            CLOG_DEBUG("subscribe topic %s success\n", mqttAttr->sub_topic);
     }
 }
 
@@ -79,7 +79,7 @@ int CMqtt::push_data(char *dataBuf, int dataLen)
     int ret = mosquitto_publish(mosq, NULL, mqttAttr->pub_topic, dataLen, dataBuf, mqttAttr->qos, false);
     if (MOSQ_ERR_SUCCESS != ret)
     {
-        TRACE_DEBUG("mosquitto_publish error");
+        CLOG_DEBUG("mosquitto_publish error");
         return -1;
     }
     return 0;

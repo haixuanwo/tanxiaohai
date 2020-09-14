@@ -9,6 +9,8 @@
 #include "tinyxml2.h"
 #include "json.hpp"
 #include "sqlite.h"
+#include "Time.h"
+
 #include <string.h>
 
 int log_test()
@@ -16,7 +18,7 @@ int log_test()
     char buf[] = {"fpx is rabish"};
 	while(1)
 	{
-        TRACE_INFO("cao ni daye [%d]:%s", 2025, buf);
+        CLOG_INFO("cao ni daye [%d]:%s", 2025, buf);
 		sleep(1);
 	}
 }
@@ -46,9 +48,45 @@ int mqtt_test()
     }
 }
 
+void time_test()
+{
+    CTime T;
+    int year    = 0;
+    int mon     = 0;
+    int day     = 0;
+    int hour    = 0;
+    int min     = 0;
+    int second  = 0;
+
+    while(1)
+    {
+        //CLOG_INFO("T --- now time [%d] secs\n", T.get_UTC_seconds());
+        //CLOG_INFO("T --- now time [%ld] nanosecs\n", T.get_UTC_nanoseconds()/1000000000);
+        //CLOG_INFO("T --- now time [%ld] usecs\n", T.get_UTC_useconds());
+
+        /*T.get_local_date(year, mon, day, hour, min, second);
+        CLOG_INFO("T --- local year[%d] mon[%d] day[%d] hour[%d] min[%d] second[%d]\n", year, mon, day, hour, min, second);
+
+        struct tm tmp;
+        memset(&tmp, 0, sizeof(tmp));
+
+        tmp.tm_year = year - 1900;
+        tmp.tm_mon = mon - 1;
+        tmp.tm_mday = day;
+        tmp.tm_hour  = hour;
+        tmp.tm_min = min;
+        tmp.tm_sec = second;
+        CLOG_INFO("T --- TIME[%d] time[%d]\n", T.get_local_time_frome_date(&tmp), time(nullptr));*/
+
+        T.start();
+        sleep(1);
+        CLOG_INFO("T --- interval time[%ld]", T.stop());
+    }
+}
+
 int main(int argc, char *argv[])
 {
-    mqtt_test();
+    time_test();
     return 0;
 }
 

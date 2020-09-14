@@ -13,6 +13,9 @@ extern "C"
 #include "mosquitto.h"
 }
 
+/**
+ * @brief mqtt属性结构体
+ */
 typedef struct{
     char IP[16];
     int port;
@@ -25,6 +28,9 @@ typedef struct{
     char passwd[64];
 }MqttAttr_S;
 
+/**
+ * @brief mqtt应用类
+ */
 class CMqtt
 {
 public:

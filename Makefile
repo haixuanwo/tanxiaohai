@@ -1,9 +1,15 @@
 
 CXX=g++
 RM=rm
-SRC=main.cpp src/log.cpp src/mqtt.cpp src/tinyxml2.cpp src/sqlite.cpp
+SRC=main.cpp \
+	src/log.cpp \
+	src/mqtt.cpp \
+	src/tinyxml2.cpp \
+	src/sqlite.cpp \
+	src/Time.cpp
+
 CFLAGS=-llog4cpp -lmosquitto -lsqlite3 -lm -ldl -lpthread -std=c++11
-BIN=mqtt_main
+BIN=main
 INC=include
 LIB=lib
 

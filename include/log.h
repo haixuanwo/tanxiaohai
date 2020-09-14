@@ -61,14 +61,14 @@ private:
 
 extern CLog Log;
 
-#define TRACE_DEBUG(stringFormat, arg...)   Log.print(DEBUG, stringFormat, ##arg)
-#define TRACE_INFO(stringFormat, arg...)    Log.print(INFO, stringFormat, ##arg)
-#define TRACE_NOTICE(stringFormat, arg...)  Log.print(NOTICE, stringFormat, ##arg)
-#define TRACE_WARN(stringFormat, arg...)    Log.print(WARN, stringFormat, ##arg)
-#define TRACE_ERROR(stringFormat, arg...)   Log.print(ERROR, stringFormat, ##arg)
-#define TRACE_CRIT(stringFormat, arg...)    Log.print(CRIT, stringFormat, ##arg)
-#define TRACE_ALERT(stringFormat, arg...)   Log.print(ALERT, stringFormat, ##arg)
-#define TRACE_FATAL(stringFormat, arg...)   Log.print(FATAL, stringFormat, ##arg)
+#define CLOG_DEBUG(stringFormat, arg...)   Log.print(DEBUG, stringFormat, ##arg)
+#define CLOG_INFO(stringFormat, arg...)    Log.print(INFO, stringFormat, ##arg)
+#define CLOG_NOTICE(stringFormat, arg...)  Log.print(NOTICE, stringFormat, ##arg)
+#define CLOG_WARN(stringFormat, arg...)    Log.print(WARN, stringFormat, ##arg)
+#define CLOG_ERROR(stringFormat, arg...)   Log.print(ERROR, stringFormat, ##arg)
+#define CLOG_CRIT(stringFormat, arg...)    Log.print(CRIT, stringFormat, ##arg)
+#define CLOG_ALERT(stringFormat, arg...)   Log.print(ALERT, stringFormat, ##arg)
+#define CLOG_FATAL(stringFormat, arg...)   Log.print(FATAL, stringFormat, ##arg)
 
 /*
 单元测试用例 test case
