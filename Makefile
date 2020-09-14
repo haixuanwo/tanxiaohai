@@ -6,7 +6,8 @@ SRC=main.cpp \
 	src/mqtt.cpp \
 	src/tinyxml2.cpp \
 	src/sqlite.cpp \
-	src/Time.cpp
+	src/Time.cpp \
+	src/random_number.cpp
 
 CFLAGS=-llog4cpp -lmosquitto -lsqlite3 -lm -ldl -lpthread -std=c++11
 BIN=main

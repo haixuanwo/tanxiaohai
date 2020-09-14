@@ -10,6 +10,7 @@
 #include "json.hpp"
 #include "sqlite.h"
 #include "Time.h"
+#include "random_number.h"
 
 #include <string.h>
 
@@ -84,9 +85,21 @@ void time_test()
     }
 }
 
+
+void test_random()
+{
+    CRand R;
+    while(1)
+    {
+        //CLOG_INFO("T --- rand num[%ld] RAND_MAX[%d]", R.get_rand_num(), RAND_MAX);
+        CLOG_INFO("T --- rand num [%d]", R.get_rand_num_from_range(10, 20));
+        sleep(1);
+    }
+}
+
 int main(int argc, char *argv[])
 {
-    time_test();
+    test_random();
     return 0;
 }
 
